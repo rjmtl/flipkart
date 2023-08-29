@@ -9,7 +9,7 @@ const handler = async (event) => {
         console.log(id,">>>>>>>>>>>>>>>>")
         const database = (await clientPromise).db('test')
         const collection = database.collection('products')
-        const results = await collection.find({id:id});
+        const results = await collection.findOne({'id':id});
         return {
             statusCode: 200,
             body: JSON.stringify(results),
