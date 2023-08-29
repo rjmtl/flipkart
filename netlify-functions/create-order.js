@@ -28,7 +28,7 @@ const handler = async (event) => {
     
         return {
           statusCode: 200,
-          body: JSON.stringify(order),
+          body: JSON.stringify({message: "Payment Successfull"}),
           headers: {
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE"
