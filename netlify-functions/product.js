@@ -6,6 +6,7 @@ const clientPromise = mongoClient.connect();
 const handler = async (event) => {
     try {
         const id = event.path.split('/').pop(); 
+        console.log(id,">>>>>>>>>>>>>>>>")
         const database = (await clientPromise).db('test')
         const collection = database.collection('products')
         const results = await collection.find({id:id});
