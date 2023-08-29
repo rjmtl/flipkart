@@ -2,7 +2,8 @@ import Product from '../model/productSchema.js';
 
 
 exports.handler = async function(event, context) { 
-    const products = await Product.find({});    
+    const products = await Product.find({});  
+    console.log(products)  
     return { 
     statusCode: 200, 
     headers: {
