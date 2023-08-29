@@ -13,7 +13,7 @@ const handler = async (event) => {
             body: JSON.stringify(results),
         }
     } catch (error) {
-        console.log(">>>>>>>>>>>>>>>>>>>")
+        console.log(">>>>>>>>>>>>>>>>>>>",error)
         return {statusCode:500, body: error.toString() };
     }
 }  
