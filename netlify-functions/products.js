@@ -1,11 +1,18 @@
+import products from '../model/productSchema';
+import Products from '../model/productSchema';
+
 exports.handler = async function(event, context) { 
+
+    const productData = await products.find({})
+    console.log(productData);
+
     return { 
     statusCode: 200, 
     headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE"
     },
-body: JSON.stringify("Hello World")}; };
+body: JSON.stringify(productData)}; };
 
 
 
