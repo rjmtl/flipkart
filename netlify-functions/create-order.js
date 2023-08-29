@@ -19,6 +19,10 @@ const handler = async (event) => {
           return {
             statusCode: 500,
             body: JSON.stringify({ message: 'Some error occurred' }),
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE"
+          },
           };
         }
     
@@ -31,6 +35,10 @@ const handler = async (event) => {
         return {
           statusCode: 500,
           body: JSON.stringify({ error: error.message }),
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE"
+        },
         };
       }
 }  
