@@ -14,22 +14,16 @@
 // body: products}; };
 
 import mongoose from 'mongoose';
-import products from '../model/productSchema';
+import Products from '../model/productSchema';
 
 exports.handler = async function(event, context) {
     try {
-        // Connect to the MongoDB database (if not already connected)
         await mongoose.connect("mongodb+srv://rajatkumar:faTttSCH5YdY2lZg@cluster0.4dl3qti.mongodb.net/", {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
-
-        // Fetch products from the database
-        const allProducts = await products.find({});
+        const allProducts = await Products.find({});
         console.log(allProducts)
-        // Close the database connection
-        mongoose.connection.close();
-
         return {
             statusCode: 200,
             headers: {
