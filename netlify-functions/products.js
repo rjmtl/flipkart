@@ -26,7 +26,7 @@ exports.handler = async function(event, context) {
 
         // Fetch products from the database
         const allProducts = await products.find({});
-
+        console.log(allProducts)
         // Close the database connection
         mongoose.connection.close();
 
@@ -39,9 +39,11 @@ exports.handler = async function(event, context) {
             body: JSON.stringify(allProducts) // Return products as a JSON string
         };
     } catch (error) {
+        console.log(error)
         return {
             statusCode: 500,
             body: JSON.stringify({ error: "Internal Server Error" })
         };
+        
     }
 };
