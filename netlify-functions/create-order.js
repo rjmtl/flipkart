@@ -13,6 +13,7 @@ const handler = async (event) => {
         
         // Create an order using async/await
         const order = await instance.orders.create(options);
+        console.log(">>>>>>>>>>>>>>>",order)
     
         if (!order) {
           return {
@@ -27,7 +28,7 @@ const handler = async (event) => {
     
         return {
           statusCode: 200,
-          body: JSON.stringify({message: "Payment Successfull"}),
+          body: JSON.stringify(order),
           headers: {
             "Access-Control-Allow-Origin": "*",
         },
