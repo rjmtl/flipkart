@@ -2,7 +2,6 @@ import Razorpay from "razorpay";
 
 const handler = async (event) => {
     try {
-      console.log("......................,",event)
         const instance = new Razorpay({
           key_id: "rzp_test_DCXhCPT0EfIn8e",
           key_secret: "jddosmhLZDaoUPFIZJRZ0hBe",
@@ -21,7 +20,7 @@ const handler = async (event) => {
             body: JSON.stringify({ message: 'Some error occurred' }),
             headers: {
               "Access-Control-Allow-Origin": "*",
-              "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE"
+
           },
           };
         }
@@ -31,7 +30,6 @@ const handler = async (event) => {
           body: JSON.stringify({message: "Payment Successfull"}),
           headers: {
             "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE"
         },
         };
       } catch (error) {
@@ -41,7 +39,6 @@ const handler = async (event) => {
           body: JSON.stringify({ error: error.message }),
           headers: {
             "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE"
         },
         };
       }
