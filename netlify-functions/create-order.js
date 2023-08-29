@@ -1,13 +1,9 @@
-const {MongoClient} = require("mongodb");
-
-const mongoClient = new MongoClient("mongodb+srv://rajatkumar:faTttSCH5YdY2lZg@cluster0.4dl3qti.mongodb.net/")
-const clientPromise = mongoClient.connect();
-
 const handler = async (event) => {
     try {
+      console.log("......................,",event.body)
         const instance = new Razorpay({
-          key_id: process.env.RAZORPAY_KEY_ID,
-          key_secret: process.env.RAZORPAY_KEY_SECRET,
+          key_id: "rzp_test_DCXhCPT0EfIn8e",
+          key_secret: "jddosmhLZDaoUPFIZJRZ0hBe",
         });
         const options = {
           amount: event.body.price,
@@ -29,6 +25,7 @@ const handler = async (event) => {
           body: JSON.stringify(order),
         };
       } catch (error) {
+        console.log(">>>>>>>>>>>>>>>>>>>>>",error)
         return {
           statusCode: 500,
           body: JSON.stringify({ error: error.message }),
