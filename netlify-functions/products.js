@@ -1,18 +1,18 @@
-import products from '../model/productSchema';
-import Products from '../model/productSchema';
+// import products from '../model/productSchema';
+// import Products from '../model/productSchema';
 
-exports.handler = async function(event, context) { 
+// exports.handler = async function(event, context) { 
 
-    const productData = await products.find({})
-    console.log(productData);
+//     const productData = await products.find({})
+//     console.log(productData);
 
-    return { 
-    statusCode: 200, 
-    headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE"
-    },
-body: JSON.stringify(productData)}; };
+//     return { 
+//     statusCode: 200, 
+//     headers: {
+//         "Access-Control-Allow-Origin": "*",
+//         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE"
+//     },
+// body: JSON.stringify(productData)}; };
 
 
 
@@ -44,3 +44,27 @@ body: JSON.stringify(productData)}; };
         
 //     }
 // };
+
+
+const {MongoClient} = require("mongodb");
+const { default: products } = require("../model/productSchema");
+require('dotenv').config();
+
+const mongoClient = new MongoClient("mongodb+srv://rajatkumar:faTttSCH5YdY2lZg@cluster0.4dl3qti.mongodb.net/")
+const clientPromise = mongoClient.connect();
+
+const handler = async (event) => {
+    try {
+        const database = (await clientPromise).db('test')
+        const collection = database.collection('products')
+        const results = await collection.find({}).limit(10).toArray();
+        return {
+            statusCode: 200,
+            body: JSON.stringify(results),
+        }
+    } catch (error) {
+        return {statusCode:500, body: error.toString() };
+    }
+}  
+
+module.exports = { handler }
