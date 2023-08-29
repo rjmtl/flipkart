@@ -10,4 +10,4 @@ exports.handler = async function(event, context) {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE"
     },
-body: response.json(products)}; };
+body: products}; };
