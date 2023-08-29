@@ -11,6 +11,10 @@ const handler = async (event) => {
         return {
             statusCode: 200,
             body: JSON.stringify(results),
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE"
+            },
         }
     } catch (error) {
         console.log(">>>>>>>>>>>>>>>>>>>",error)
