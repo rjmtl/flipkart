@@ -2,13 +2,13 @@ import Razorpay from "razorpay";
 
 const handler = async (event) => {
     try {
-      console.log("......................,",event.body)
+      console.log("......................,",event)
         const instance = new Razorpay({
           key_id: "rzp_test_DCXhCPT0EfIn8e",
           key_secret: "jddosmhLZDaoUPFIZJRZ0hBe",
         });
         const options = {
-          amount: event.body.price,
+          amount: "100",
           currency: 'INR',
         };
         
