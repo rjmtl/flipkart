@@ -4,7 +4,7 @@ import AutoIncrementFactory from 'mongoose-sequence';
 const AutoIncrement = AutoIncrementFactory(mongoose);
 
 const productSchema = new mongoose.Schema({
-    id: {type: Number, unique: true},
+    id: String,
     url: String,
     detailUrl: String,
     title: Object,
