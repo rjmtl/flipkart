@@ -19,7 +19,7 @@ router.get('/product/:id', getProductById);
 router.post('/cart/add', addItemInCart);
 
 router.get('/get-razorpay-key', (req, res) => {
-    res.send({ key: process.env.RAZORPAY_KEY_ID });
+    res.send({ key: "rzp_test_DCXhCPT0EfIn8e" });
   });
   
 router.post("/create-order", createOrder);
