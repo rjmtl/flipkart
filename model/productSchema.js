@@ -15,7 +15,7 @@ const productSchema = new mongoose.Schema({
     tagline: String
 });
 
-productSchema.plugin(AutoIncrement, {inc_field: 'id'});
+// productSchema.plugin(AutoIncrement, {inc_field: 'id'});
 
 const products = mongoose.model('product', productSchema);
 
