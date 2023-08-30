@@ -4,7 +4,7 @@ import AutoIncrementFactory from 'mongoose-sequence';
 const AutoIncrement = AutoIncrementFactory(mongoose);
 
 const productSchema = new mongoose.Schema({
-    id: {type: Number, unique: false},
+    id: {type: Number, unique: true},
     url: String,
     detailUrl: String,
     title: Object,
@@ -13,7 +13,7 @@ const productSchema = new mongoose.Schema({
     description: String,
     discount: String,
     tagline: String
-});
+},{_id:false});
 
 // productSchema.plugin(AutoIncrement, {inc_field: 'id'});
 
