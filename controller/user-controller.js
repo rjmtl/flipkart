@@ -6,7 +6,10 @@ export const userLogIn = async (request, response) => {
         console.log(user);
         console.log(request.body);
         if(user) {
-            return response.send({username:user.username});
+            return response.send({username:user.username,
+                id: user._id,
+                phone: user.phone
+            });
         } else {
             return response.status(401).json('Invalid Login');
         }
